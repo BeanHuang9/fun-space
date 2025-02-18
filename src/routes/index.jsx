@@ -1,0 +1,37 @@
+import { createBrowserRouter } from "react-router-dom";
+import { Home, Cities, NotFound, Product,Cart } from '@/pages'
+import Layout from "@/components/Layout";
+
+const  router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Layout />,
+        children: [
+            {
+                path: '/',
+                element: <Home />
+            },
+            {
+                //動態參數
+                path: '/Cities/:city',
+                element: <Cities />
+            },
+            {
+                path: '/Product/:id',
+                element: <Product />
+            },
+            {
+                path: '/Cart',
+                element: <Cart />
+            },
+            {
+                path: '*',
+                element: <NotFound />
+            },
+        ]
+
+    },
+
+]);
+
+export default router;
