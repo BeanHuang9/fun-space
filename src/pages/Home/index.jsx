@@ -3,7 +3,7 @@ import BloggerDou from "@/assets/images/blogger-dou.jpg";
 import BloggerBB from "@/assets/images/blogger-bb.jpg";
 import SpotCard from "@/components/SpotCard";
 import Activity from "@/components/Activity";
-import TravelBlog from "@/components/TravelBlog";
+import TravelCard from "@/components/TravelCard";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "flowbite-react";
 // import axios from "axios"
@@ -232,7 +232,7 @@ const Home = () => {
           </h2>
           <div className="flex flex-wrap md:flex-nowrap md:space-x-4 py-4">
             {travelData.map((item, index) => (
-              <TravelBlog key={index} {...item} />
+              <TravelCard key={index} {...item} />
             ))}
           </div>
         </section>

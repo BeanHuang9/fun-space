@@ -1,6 +1,6 @@
 import BloggerInfo from "./BloggerInfo";
 
-const TravelBlog = ({ image, title, subTitle, blogger }) => {
+const TravelCard = ({ image, title, subTitle, blogger }) => {
   return (
     <div className="w-full md:flex-1 text-white text-left">
       <a href="cityInfo.html">
@@ -15,4 +15,4 @@ const TravelBlog = ({ image, title, subTitle, blogger }) => {
   );
 };
 
-export default TravelBlog;
+export default TravelCard;
