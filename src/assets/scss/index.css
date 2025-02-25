@@ -5,4 +5,8 @@ input[type=radio]:checked + label {
   background-color: #ef4444;
   color: white;
   border-color: #ef4444;
+}
+
+.banner-carousel div {
+  border-radius: 0px !important;
 }/*# sourceMappingURL=index.css.map */

@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Cities, NotFound, Product,Cart } from '@/pages'
+import { Home, Cities, NotFound, Product, Cart, List } from '@/pages'
 import Layout from "@/components/Layout";
 
 const  router = createBrowserRouter([
@@ -23,6 +23,10 @@ const  router = createBrowserRouter([
             {
                 path: '/Cart',
                 element: <Cart />
+            },
+            {
+                path: '/list',
+                element: <List/>
             },
             {
                 path: '*',

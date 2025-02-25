@@ -1,7 +1,29 @@
 import User from '@/assets/images/user.png'
 import { Link } from 'react-router-dom'
+import { useTranslation } from "react-i18next";
+
+import { useState } from 'react'
+import i18n from '@/i18n'
+
+const languageList = {
+  zh: 'zh_TW',
+  en: 'en_US'
+}
+
 
 const Header = () => {
+
+  const { t } = useTranslation()
+  const [language, setLanguage] = useState(languageList.zh)
+
+  const changLanguage = () =>{
+    const newLang = language === languageList.zh ? languageList.en : languageList.zh
+    setLanguage(newLang)// 改變頁面
+    i18n.changeLanguage(newLang)//改變i18語言
+
+  }
+
+
   return (
     <>
       <nav className="bg-white shadow-md">
@@ -10,13 +32,11 @@ const Header = () => {
           <ul className="flex space-x-4 z-30">
             <li>
               <a href="#" className="text-gray-600 hover:text-gray-800">
-                開始規劃
+                {t('start_planning')}
               </a>
             </li>
-            <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
-                <i className="fa-solid fa-language"></i>
-              </a>
+            <li className="text-gray-600 hover:text-gray-800 cursor-pointer" onClick={changLanguage}>
+              <i className="fa-solid fa-language"></i>
             </li>
             <li>
               <a href="#" className="text-gray-600 hover:text-gray-800">

@@ -1,0 +1,631 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1601202372515-3c72d8e941c3?q=80&w=2340&auto=format&fit=crop",
+    "title": "台北101觀景台門票",
+    "subTitle": "觀景台 • 台北",
+    "summary": "登上台北101，俯瞰台北市美景，感受城市繁華。",
+    "desc": "體驗台北的地標建築——台北101，從高處一覽無遺台北市區及遠山景色。搭乘高速電梯，感受驚人的速度和現代科技。現場提供多語言導覽解說，讓您深入了解這座城市的歷史與文化。",
+    "star": 4.5,
+    "sale": 1500,
+    "price": 600,
+    "tags": ["熱門", "快速入場"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "台北101觀景台 一般票",
+        "price": 600,
+        "city": "台北",
+        "tags": ["熱門", "快速入場"],
+        "remark": "有效期30天內使用，售後不退不換。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee9813?q=80&w=2340&auto=format&fit=crop",
+    "title": "故宮博物院精選導覽票",
+    "subTitle": "博物館導覽 • 台北",
+    "summary": "深入了解中華文化瑰寶，由專業導覽員帶領探索故宮珍藏。",
+    "desc": "故宮博物院精選導覽票提供專業導覽服務，帶領您穿越中華藝術的悠久歷史。精選珍品展覽及獨家背景解說，讓您對中華文化有更深刻的認識。此行程適合歷史愛好者與藝術收藏家。",
+    "star": 4.7,
+    "sale": 1200,
+    "price": 800,
+    "tags": ["熱門", "專業導覽"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "故宮導覽 一般票",
+        "price": 800,
+        "city": "台北",
+        "tags": ["熱門", "專業導覽"],
+        "remark": "提供中文、英文導覽，適合親子及海外旅客。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1571008883167-c3c0b91c0bde?q=80&w=2340&auto=format&fit=crop",
+    "title": "九份山城小旅行",
+    "subTitle": "古鎮漫遊 • 新北",
+    "summary": "漫步在九份老街，品味懷舊風情與地道小吃。",
+    "desc": "九份山城小旅行帶您走訪充滿懷舊氣息的九份老街，探索古色古香的小巷與茶館。導遊將分享這座山城的歷史故事，讓您在美食與風景中感受台灣獨有的魅力。",
+    "star": 4.6,
+    "sale": 900,
+    "price": 500,
+    "tags": ["人氣", "文化體驗"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "九份一日遊",
+        "price": 500,
+        "city": "新北",
+        "tags": ["人氣", "文化體驗"],
+        "remark": "包含往返接送及導遊服務，體驗當地美食。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1573032891737-2b8a1d4d57b8?q=80&w=2340&auto=format&fit=crop",
+    "title": "台南古城美食巡禮",
+    "subTitle": "美食之旅 • 台南",
+    "summary": "品味台南小吃，探訪古城美味的秘密。",
+    "desc": "台南以其豐富的美食文化聞名，這次的美食巡禮將帶您走訪台南古城內的特色小吃與老店，品嘗道地的台南風味。導遊將介紹每道料理的歷史背景，讓您在味蕾間感受台灣文化。",
+    "star": 4.8,
+    "sale": 1100,
+    "price": 750,
+    "tags": ["熱門", "美食"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "台南美食巡禮 一般票",
+        "price": 750,
+        "city": "台南",
+        "tags": ["熱門", "美食"],
+        "remark": "包含多家美食小吃及文化導覽，適合美食愛好者。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1566403976113-9f0cd56f4fdc?q=80&w=2340&auto=format&fit=crop",
+    "title": "高雄蓮池潭船遊體驗",
+    "subTitle": "湖上遊船 • 高雄",
+    "summary": "悠遊蓮池潭，欣賞湖畔美景，享受寧靜午後。",
+    "desc": "乘坐遊船，從高雄蓮池潭出發，感受湖面微風拂面的寧靜。全程有專業導遊講解歷史故事與當地傳說，適合全家大小共度悠閒時光，並拍攝美麗風景。",
+    "star": 4.5,
+    "sale": 800,
+    "price": 650,
+    "tags": ["推薦", "悠閒"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "蓮池潭船遊 一般票",
+        "price": 650,
+        "city": "高雄",
+        "tags": ["推薦", "悠閒"],
+        "remark": "船票包含一杯飲料，遊覽時長約90分鐘。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=2340&auto=format&fit=crop",
+    "title": "花蓮太魯閣國家公園一日遊",
+    "subTitle": "自然探險 • 花蓮",
+    "summary": "探索壯麗峽谷，感受大自然的原始美。",
+    "desc": "太魯閣國家公園以其壯觀的峽谷和豐富的生態景觀吸引無數旅客。這趟一日遊將帶您深入探訪公園內的知名步道和秘境，適合愛好戶外活動與自然風光的旅客。",
+    "star": 4.9,
+    "sale": 700,
+    "price": 950,
+    "tags": ["熱門", "自然"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "太魯閣一日遊 一般票",
+        "price": 950,
+        "city": "花蓮",
+        "tags": ["熱門", "自然"],
+        "remark": "含專車接送及導遊服務，提供午餐。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1516910817561-3436f8c1b23b?q=80&w=2340&auto=format&fit=crop",
+    "title": "宜蘭傳統手作體驗",
+    "subTitle": "文化工作坊 • 宜蘭",
+    "summary": "親手製作傳統工藝品，體驗台灣在地文化。",
+    "desc": "在宜蘭的文化工作坊中，體驗傳統手作工藝，從製作到完成您專屬的紀念品。工作坊由當地匠人親自指導，讓您深入了解台灣傳統技藝及工藝精神。",
+    "star": 4.6,
+    "sale": 500,
+    "price": 550,
+    "tags": ["創意", "體驗"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "宜蘭手作體驗 一般票",
+        "price": 550,
+        "city": "宜蘭",
+        "tags": ["創意", "體驗"],
+        "remark": "提供所有工具及材料，適合家庭及團體活動。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1559388613-b1f1a1f29d7c?q=80&w=2340&auto=format&fit=crop",
+    "title": "台中彩虹眷村創意之旅",
+    "subTitle": "藝術巡禮 • 台中",
+    "summary": "走訪彩虹眷村，感受街頭藝術的魅力與色彩。",
+    "desc": "台中彩虹眷村以其獨特的街頭藝術和多彩壁畫聞名，此行程將帶您深入了解這個藝術社區的創作背景及居民故事。導遊將分享彩虹眷村的歷史轉型及未來願景。",
+    "star": 4.7,
+    "sale": 600,
+    "price": 500,
+    "tags": ["藝術", "文化"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "彩虹眷村導覽 一般票",
+        "price": 500,
+        "city": "台中",
+        "tags": ["藝術", "文化"],
+        "remark": "提供多語言導覽服務，適合獨立旅客與攝影愛好者。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1578926371283-4d1f3d7f9a0c?q=80&w=2340&auto=format&fit=crop",
+    "title": "新北市平溪天燈放飛體驗",
+    "subTitle": "天燈祈福 • 新北",
+    "summary": "在平溪放飛天燈，許下心願，感受傳統祈福文化。",
+    "desc": "平溪天燈放飛體驗讓您在浪漫的夜空下放飛天燈，傳遞心中願望。體驗過程中將講解天燈的歷史與意義，是結合文化與藝術的獨特體驗。",
+    "star": 4.8,
+    "sale": 1300,
+    "price": 400,
+    "tags": ["熱門", "必玩"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "平溪天燈體驗 一般票",
+        "price": 400,
+        "city": "新北",
+        "tags": ["熱門", "必玩"],
+        "remark": "體驗包含天燈及簡易小吃，活動時間約2小時。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1582719478140-87e9ce53d6ac?q=80&w=2340&auto=format&fit=crop",
+    "title": "台東綠色隧道自行車之旅",
+    "subTitle": "自行車遊 • 台東",
+    "summary": "沿著綠意盎然的台東鄉間小路，享受自由風光。",
+    "desc": "台東綠色隧道自行車之旅帶您騎乘在台東最美的鄉間小路上，感受田園風光與大自然的氣息。行程中提供專業領隊及安全裝備，適合所有年齡層的旅客。",
+    "star": 4.7,
+    "sale": 400,
+    "price": 700,
+    "tags": ["戶外", "運動"],
+    "category": "taiwan",
+    "plan": [
+      {
+        "name": "自行車之旅 一般票",
+        "price": 700,
+        "city": "台東",
+        "tags": ["戶外", "運動"],
+        "remark": "含安全裝備租借及基本保險，行程約4小時。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1570207551975-4d1b0fbd2485?q=80&w=2340&auto=format&fit=crop",
+    "title": "東京迪士尼門票",
+    "subTitle": "主題樂園 • 東京",
+    "summary": "享受夢幻奇遇，體驗迪士尼的魔法世界。",
+    "desc": "東京迪士尼提供全家大小歡樂的遊樂體驗。從刺激的遊樂設施到經典的迪士尼遊行，每一個細節都讓人沉醉在夢幻世界中。適合所有年齡層的旅客。",
+    "star": 4.8,
+    "sale": 2000,
+    "price": 800,
+    "tags": ["熱門", "家庭適用"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "東京迪士尼 一日票",
+        "price": 800,
+        "city": "東京",
+        "tags": ["熱門", "家庭適用"],
+        "remark": "含快速入園，票券一經購買不接受退換。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1606423081985-c7b43f834d7d?q=80&w=2340&auto=format&fit=crop",
+    "title": "富士山賞楓之旅",
+    "subTitle": "自然風光 • 富士山",
+    "summary": "在秋天的富士山下，欣賞絢爛的楓葉美景。",
+    "desc": "此行程帶您前往富士山腳下的自然風光區，體驗秋季楓葉變色的奇妙景觀。專業導遊將分享富士山的歷史與文化，讓您的旅程更加豐富。",
+    "star": 4.7,
+    "sale": 1500,
+    "price": 1200,
+    "tags": ["熱門", "自然"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "富士山賞楓 一日遊",
+        "price": 1200,
+        "city": "富士山",
+        "tags": ["熱門", "自然"],
+        "remark": "包含交通、導遊與午餐，適合攝影愛好者。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1569891910988-4c430a7a7250?q=80&w=2340&auto=format&fit=crop",
+    "title": "京都清水寺導覽",
+    "subTitle": "文化之旅 • 京都",
+    "summary": "走訪古蹟，體驗千年古都的文化底蘊。",
+    "desc": "京都清水寺導覽活動讓您了解這座千年古寺的歷史與傳說。專業導覽員將引領您穿越古老寺廟與周邊古城街道，體驗日本傳統文化。",
+    "star": 4.9,
+    "sale": 1800,
+    "price": 700,
+    "tags": ["文化", "歷史"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "京都清水寺 導覽票",
+        "price": 700,
+        "city": "京都",
+        "tags": ["文化", "歷史"],
+        "remark": "提供多語言導覽，適合個人及團體參加。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2340&auto=format&fit=crop",
+    "title": "大阪美食探索之旅",
+    "subTitle": "美食體驗 • 大阪",
+    "summary": "品味大阪地道小吃，感受美食之都的獨特魅力。",
+    "desc": "大阪美食探索之旅帶您穿梭在這座城市的街頭巷尾，品嚐各式地道小吃及特色料理。專業導遊將介紹每道料理的背景故事，讓您的味蕾大開。",
+    "star": 4.8,
+    "sale": 1700,
+    "price": 900,
+    "tags": ["美食", "必吃"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "大阪美食一日遊",
+        "price": 900,
+        "city": "大阪",
+        "tags": ["美食", "必吃"],
+        "remark": "包含多家知名小吃店，行程約6小時。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2340&auto=format&fit=crop",
+    "title": "北海道雪祭體驗",
+    "subTitle": "冬季活動 • 北海道",
+    "summary": "參與北海道雪祭，感受冬日冰雪奇景。",
+    "desc": "北海道雪祭體驗帶您欣賞壯觀的冰雕展覽和雪地活動，讓您沉浸在冰雪世界的魅力中。專業導遊全程陪同，確保您的安全與舒適。",
+    "star": 4.7,
+    "sale": 1300,
+    "price": 1100,
+    "tags": ["冬季", "冰雪"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "北海道雪祭體驗票",
+        "price": 1100,
+        "city": "札幌",
+        "tags": ["冬季", "冰雪"],
+        "remark": "包含雪祭主要景點門票，適合冬季出行。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1557093788-111e4ac40c6b?q=80&w=2340&auto=format&fit=crop",
+    "title": "橫濱港口夜景巡航",
+    "subTitle": "夜間遊船 • 橫濱",
+    "summary": "乘坐遊船，欣賞橫濱港的璀璨夜景。",
+    "desc": "橫濱港口夜景巡航讓您在夜色中感受都市的璀璨光芒。遊船行程包含導覽解說，讓您了解橫濱港的歷史與現代風貌。",
+    "star": 4.8,
+    "sale": 1400,
+    "price": 750,
+    "tags": ["夜景", "浪漫"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "橫濱夜景巡航 一般票",
+        "price": 750,
+        "city": "橫濱",
+        "tags": ["夜景", "浪漫"],
+        "remark": "遊船時長約90分鐘，提供茶點服務。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2340&auto=format&fit=crop",
+    "title": "奈良鹿公園一日遊",
+    "subTitle": "自然與歷史 • 奈良",
+    "summary": "與自由自在的鹿群親密接觸，體驗奈良的古城風情。",
+    "desc": "奈良鹿公園一日遊帶您走訪這座充滿歷史的城市，與當地可愛的鹿群互動。專業導遊將介紹奈良的歷史文化，並帶您遊覽著名的寺廟與古蹟。",
+    "star": 4.6,
+    "sale": 1200,
+    "price": 650,
+    "tags": ["自然", "歷史"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "奈良鹿公園 一日票",
+        "price": 650,
+        "city": "奈良",
+        "tags": ["自然", "歷史"],
+        "remark": "含導覽服務與小型團體活動，適合全家出遊。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1553506296-8b3ab237c7c6?q=80&w=2340&auto=format&fit=crop",
+    "title": "沖繩海洋樂園門票",
+    "subTitle": "主題樂園 • 沖繩",
+    "summary": "探索沖繩海底世界，與各式海洋生物親密接觸。",
+    "desc": "沖繩海洋樂園以其豐富的海洋生態展示和互動體驗吸引眾多遊客。遊客可以觀賞精彩的海豚表演，並參加各種海洋互動活動，適合親子同遊。",
+    "star": 4.8,
+    "sale": 1600,
+    "price": 850,
+    "tags": ["海洋", "親子"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "沖繩海洋樂園 一日票",
+        "price": 850,
+        "city": "沖繩",
+        "tags": ["海洋", "親子"],
+        "remark": "票券含互動體驗項目，當日有效，不支持退票。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1527786356700-d6e11547301f?q=80&w=2340&auto=format&fit=crop",
+    "title": "神戶港遊船體驗",
+    "subTitle": "遊船體驗 • 神戶",
+    "summary": "搭乘遊船，穿梭在神戶港的美麗海岸線上。",
+    "desc": "神戶港遊船體驗提供獨特的海上旅程，讓您欣賞神戶港的全景。行程中將有專業導覽講解神戶的歷史文化，並享受海風拂面的愜意感受。",
+    "star": 4.7,
+    "sale": 1100,
+    "price": 780,
+    "tags": ["海景", "文化"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "神戶港遊船 一般票",
+        "price": 780,
+        "city": "神戶",
+        "tags": ["海景", "文化"],
+        "remark": "含茶點服務，行程約120分鐘。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1596484551628-98cf9af7e259?q=80&w=2340&auto=format&fit=crop",
+    "title": "箱根溫泉放鬆之旅",
+    "subTitle": "溫泉體驗 • 箱根",
+    "summary": "在箱根享受天然溫泉，放鬆身心，感受日式風情。",
+    "desc": "箱根溫泉放鬆之旅讓您遠離都市喧囂，浸泡在天然溫泉中，恢復活力。專業導遊將帶領您參觀當地著名溫泉旅館，並介紹溫泉文化及保健功效。",
+    "star": 4.9,
+    "sale": 900,
+    "price": 1300,
+    "tags": ["放鬆", "休閒"],
+    "category": "japan",
+    "plan": [
+      {
+        "name": "箱根溫泉體驗 一日票",
+        "price": 1300,
+        "city": "箱根",
+        "tags": ["放鬆", "休閒"],
+        "remark": "包含溫泉入場券及導覽解說，適合情侶及家庭。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1522336572468-97b165087f47?q=80&w=2340&auto=format&fit=crop",
+    "title": "新加坡濱海灣花園門票",
+    "subTitle": "自然美景 • 新加坡",
+    "summary": "探索世界級植物園與超現代園林設計的完美結合。",
+    "desc": "濱海灣花園是新加坡著名的地標之一，展示創新的園林設計與環保科技。參觀者可欣賞垂直花園與未來感十足的溫室建築，適合全家出遊與拍照留念。",
+    "star": 4.8,
+    "sale": 1600,
+    "price": 700,
+    "tags": ["熱門", "家庭適用"],
+    "category": "singapore",
+    "plan": [
+      {
+        "name": "濱海灣花園 一日票",
+        "price": 700,
+        "city": "新加坡",
+        "tags": ["熱門", "家庭適用"],
+        "remark": "含快速入園服務，不含導覽。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1572825281580-63f6d4d6e5f1?q=80&w=2340&auto=format&fit=crop",
+    "title": "新加坡夜間動物園之旅",
+    "subTitle": "野生動物 • 新加坡",
+    "summary": "體驗獨特夜間野生動物生態，探索夜的神秘世界。",
+    "desc": "新加坡夜間動物園以其獨特的夜間探險而聞名，讓您在自然環境中近距離觀察各式野生動物。專業導覽員將介紹夜行動物的生活習性，是一次難忘的冒險體驗。",
+    "star": 4.7,
+    "sale": 1200,
+    "price": 750,
+    "tags": ["獨特", "冒險"],
+    "category": "singapore",
+    "plan": [
+      {
+        "name": "夜間動物園 一般票",
+        "price": 750,
+        "city": "新加坡",
+        "tags": ["獨特", "冒險"],
+        "remark": "包含導覽解說及小吃一份，當日票。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1578575436068-2f3c60c04f88?q=80&w=2340&auto=format&fit=crop",
+    "title": "新加坡濱海藝術中心導覽",
+    "subTitle": "藝術文化 • 新加坡",
+    "summary": "深入了解新加坡的文化地標與藝術展覽。",
+    "desc": "濱海藝術中心以其獨特的建築風格和豐富的藝術表演吸引眾多遊客。專業導覽員將帶您探索建築美學及背後的文化故事，是藝術愛好者不可錯過的行程。",
+    "star": 4.9,
+    "sale": 1000,
+    "price": 850,
+    "tags": ["文化", "藝術"],
+    "category": "singapore",
+    "plan": [
+      {
+        "name": "濱海藝術中心 導覽票",
+        "price": 850,
+        "city": "新加坡",
+        "tags": ["文化", "藝術"],
+        "remark": "提供多語言導覽，包含場館簡介。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1576704246695-2c9f948018a1?q=80&w=2340&auto=format&fit=crop",
+    "title": "新加坡河遊船之旅",
+    "subTitle": "水上體驗 • 新加坡",
+    "summary": "沿著新加坡河巡遊，欣賞城市天際線與歷史建築。",
+    "desc": "新加坡河遊船之旅讓您從水上欣賞新加坡獨特的城市風光與歷史建築。專業導覽員將介紹沿途地標及其故事，讓這段旅程既浪漫又富有知識性。",
+    "star": 4.8,
+    "sale": 1400,
+    "price": 600,
+    "tags": ["浪漫", "經典"],
+    "category": "singapore",
+    "plan": [
+      {
+        "name": "河遊船 一般票",
+        "price": 600,
+        "city": "新加坡",
+        "tags": ["浪漫", "經典"],
+        "remark": "遊船行程約90分鐘，含船上小食。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1573497019418-f9283bbf5e2f?q=80&w=2340&auto=format&fit=crop",
+    "title": "新加坡城市觀光巴士票",
+    "subTitle": "城市探索 • 新加坡",
+    "summary": "乘坐開放式巴士，便捷遊覽新加坡主要景點。",
+    "desc": "這張城市觀光巴士票讓您輕鬆探索新加坡的熱門景點，提供多站上下車服務，讓您隨心所欲地停靠各大地標。適合自由行旅客及初次訪新加坡的遊客。",
+    "star": 4.7,
+    "sale": 1300,
+    "price": 500,
+    "tags": ["便捷", "熱門"],
+    "category": "singapore",
+    "plan": [
+      {
+        "name": "觀光巴士 一日票",
+        "price": 500,
+        "city": "新加坡",
+        "tags": ["便捷", "熱門"],
+        "remark": "票券有效期一日，提供語音導覽服務。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2340&auto=format&fit=crop",
+    "title": "熱帶島嶼海灘度假體驗",
+    "subTitle": "奢華度假 • 馬爾地夫",
+    "summary": "享受碧海藍天與柔軟白沙，體驗極致的島嶼度假。",
+    "desc": "這趟度假體驗將帶您前往馬爾地夫一座私人島嶼，享受五星級海灘別墅與私人泳池。專業服務團隊確保每一刻都是完美的放鬆與愉悅，讓您沉浸在海洋的寧靜中。",
+    "star": 4.9,
+    "sale": 2200,
+    "price": 2500,
+    "tags": ["奢華", "海灘"],
+    "category": "island",
+    "plan": [
+      {
+        "name": "海灘度假體驗 一般票",
+        "price": 2500,
+        "city": "馬爾地夫",
+        "tags": ["奢華", "海灘"],
+        "remark": "包含早餐及私人導遊服務，需提前預訂。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1541944743827-e04aa6424c6f?q=80&w=2340&auto=format&fit=crop",
+    "title": "巴厘島文化與海灘探索",
+    "subTitle": "文化與自然 • 巴厘島",
+    "summary": "結合傳統文化與絕美海灘，深入探索巴厘島魅力。",
+    "desc": "此行程將帶您穿越巴厘島的歷史村落與熱帶海灘。導遊將解說當地的傳統習俗與宗教儀式，同時安排海邊休閒活動，讓您同時體驗文化與自然之美。",
+    "star": 4.8,
+    "sale": 1800,
+    "price": 2100,
+    "tags": ["文化", "自然"],
+    "category": "island",
+    "plan": [
+      {
+        "name": "巴厘島探索 一日遊",
+        "price": 2100,
+        "city": "巴厘島",
+        "tags": ["文化", "自然"],
+        "remark": "包括傳統表演觀賞與海灘休閒活動。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1516382799245-2f773e02e6b2?q=80&w=2340&auto=format&fit=crop",
+    "title": "塞舌爾環島生態探險",
+    "subTitle": "生態之旅 • 塞舌爾",
+    "summary": "探索塞舌爾群島獨特的生態系統，感受大自然的奇妙奧秘。",
+    "desc": "這趟生態探險行程帶您環島探索塞舌爾的自然奇觀。從豐富的珊瑚礁生態到熱帶雨林，每一站都讓您體驗到原始自然的震撼。專業生態導遊將分享當地保育故事及生物多樣性。",
+    "star": 4.7,
+    "sale": 1400,
+    "price": 2300,
+    "tags": ["生態", "探險"],
+    "category": "island",
+    "plan": [
+      {
+        "name": "塞舌爾生態之旅 一日票",
+        "price": 2300,
+        "city": "塞舌爾",
+        "tags": ["生態", "探險"],
+        "remark": "包括全程導覽及環島交通，適合自然愛好者。"
+      }
+    ]
+  },{
+    "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=2340&auto=format&fit=crop",
+    "title": "下龍灣豪華遊船體驗",
+    "subTitle": "海上奇遇 • 下龍灣",
+    "summary": "乘坐豪華遊船，暢遊下龍灣，欣賞獨特石灰岩景觀。",
+    "desc": "下龍灣以其壯觀的石灰岩島嶼和碧藍海域聞名於世。這次豪華遊船體驗不僅讓您沉浸於絕美的自然景觀中，還提供當地美食與專業導遊講解，帶您深入了解下龍灣的歷史與生態。",
+    "star": 4.9,
+    "sale": 2100,
+    "price": 1500,
+    "tags": ["豪華", "海上"],
+    "category": "vietnam",
+    "plan": [
+      {
+        "name": "下龍灣遊船體驗 一日票",
+        "price": 1500,
+        "city": "下龍灣",
+        "tags": ["豪華", "海上"],
+        "remark": "包含午餐及導覽服務，當日票，票券一經購買不退換。"
+      }
+    ]
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1566808333800-5a8b8d0f742d?q=80&w=2340&auto=format&fit=crop",
+    "title": "河內街頭美食探索",
+    "subTitle": "文化美食 • 河內",
+    "summary": "漫遊古城街頭，品味地道越南小吃與文化。",
+    "desc": "這次河內美食探索行程將帶您深入體驗越南首都的風土人情與美食文化。專業導遊將帶領您穿梭在熱鬧的市集和歷史悠久的街區，品嚐經典街頭美食並了解其背後的文化故事。",
+    "star": 4.8,
+    "sale": 1800,
+    "price": 600,
+    "tags": ["美食", "文化"],
+    "category": "vietnam",
+    "plan": [
+      {
+        "name": "河內美食探索 一日票",
+        "price": 600,
+        "city": "河內",
+        "tags": ["美食", "文化"],
+        "remark": "包含導覽解說及品嚐活動，當日票，不含個人消費。"
+      }
+    ]
+  }
+]
