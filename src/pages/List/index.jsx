@@ -1,8 +1,11 @@
 // import React from 'react'
 import { Carousel } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 const List = () => {
+
+  const navigate = useNavigate();
   return (
     <>
       <div className="cityHeader w-full ">
@@ -334,13 +337,13 @@ const List = () => {
 
               <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full">
                 <div className="2/5 md:w-2/5">
-                  <a href="cityInfo.html">
+                  <div onClick={() => navigate('/product')} className="cursor-pointer">
                     <img
                       src="https://images.unsplash.com/photo-1436891461396-6df41158de09?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="台北101"
                       className="rounded-lg w-full h-full object-cover "
                     />
-                  </a>
+                  </div>
                 </div>
 
                 <div className="3/5 md:w-3/5 p-4 flex flex-col justify-between">
