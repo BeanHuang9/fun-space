@@ -1,6 +1,16 @@
 import '../../assets/scss/index.scss';
+import { useState } from "react";
+
 
 const Cart = () => {
+
+  const [showReceipt, setShowReceipt] = useState(false);
+
+  const handleInvoiceChange = (event) => {
+    setShowReceipt(event.target.value === "tax");
+  };
+
+
   return (
     <>
       <div className="cityHeader w-full">
@@ -83,23 +93,33 @@ const Cart = () => {
                   </h2>
 
                   <div className="mx-auto">
-                    <div className="flex items-center p-4 bg-white shadow-md rounded-lg border border-gray-200">
-                      <img
-                        src="https://image.kkday.com/v2/image/get/h_600%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241213105222_JeJDz/jpg"
-                        alt="Art Aquarium"
-                        className="w-20 h-20 rounded-lg object-cover"
-                      />
+                    <div className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg border border-gray-200">
+                      <div className="flex items-center">
+                        <img
+                          src="https://image.kkday.com/v2/image/get/h_600%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241213105222_JeJDz/jpg"
+                          alt="Art Aquarium"
+                          className="w-20 h-20 rounded-lg object-cover"
+                        />
 
-                      <div className="ml-4">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          Art Aquarium(金魚藝術展) in Taipei
-                        </h3>
-                        <p className="text-gray-600 text-sm">
-                          一般票（彈性日期使用）
-                        </p>
+                        <div className="ml-4">
+                          <h3 className="text-lg font-semibold text-gray-900">
+                            Art Aquarium(金魚藝術展) in Taipei
+                          </h3>
+                          <p className="text-gray-600 text-sm">一般票（彈性日期使用）</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col space-y-2">
+                        <button className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg border border-gray-300 hover:bg-gray-200 transition text-xs">
+                          加入待購清單
+                        </button>
+                        <button className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg border border-gray-300 hover:bg-gray-200 transition text-xs">
+                          刪除
+                        </button>
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div className="p-4 mb-4 bg-white shadow-md rounded-lg p-4 border border-gray-200 ">
                   <h2 className="text-lg font-semibold text-gray-800 mb-4">
@@ -424,6 +444,7 @@ const Cart = () => {
                       <select
                         id="invoice-option"
                         className="mt-1 block w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                        onChange={handleInvoiceChange}
                       >
                         <option value="email">寄至訂購人E-mail</option>
                         <option value="tax">開立統編 / 抬頭</option>
@@ -448,38 +469,34 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 openReceipt hidden">
-                    <div>
-                      <label
-                        htmlFor="taxNo"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        統一編號 <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        placeholder="請輸入統一編號"
-                        autoComplete="on"
-                        type="number"
-                        id="taxNo"
-                        className="mt-1 block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                      />
-                    </div>
+                  {showReceipt && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <label htmlFor="taxNo" className="block text-sm font-medium text-gray-700">
+                          統一編號 <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          placeholder="請輸入統一編號"
+                          autoComplete="on"
+                          type="number"
+                          id="taxNo"
+                          className="mt-1 block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                        />
+                      </div>
 
-                    <div>
-                      <label
-                        htmlFor="company-name"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        抬頭 (買受人) <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="company-name"
-                        className="mt-1 block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                        placeholder="請輸入公司名稱（抬頭）"
-                      />
+                      <div>
+                        <label htmlFor="company-name" className="block text-sm font-medium text-gray-700">
+                          抬頭 (買受人) <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="company-name"
+                          className="mt-1 block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                          placeholder="請輸入公司名稱（抬頭）"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
