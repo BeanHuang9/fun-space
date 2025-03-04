@@ -1,3 +1,9 @@
 {
-  "start_planning": "開始規劃"
+  "start_planning": "開始規劃",
+  "login": "登入",
+  "username": "使用者名稱",
+  "placeholder_username": "請輸入使用者名稱",
+  "password": "密碼",
+  "placeholder_password": "請輸入使用者密碼"
 }
+

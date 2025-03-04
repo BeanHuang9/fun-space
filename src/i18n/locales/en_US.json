@@ -1,3 +1,8 @@
 {
-  "start_planning": "Start planning"
+  "start_planning": "Start planning",
+  "login": "Login",
+  "username": "Username",
+  "placeholder_username": "Please Enter username",
+  "password": "Password",
+  "placeholder_password": "Please Enter Password"
 }
