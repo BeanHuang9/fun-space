@@ -8,7 +8,7 @@ import Modal from "@/components/Modal";
 import { authApi } from '@/api/auth';
 import { useUserStore } from '@/store/user'
 import { Toast } from "flowbite-react";
-
+import { useCartStore } from '@/store/cart'
 
 const languageList = {
   zh: "zh_TW",
@@ -31,6 +31,11 @@ const languageList = {
 
 const Header = () => {
   const { t } = useTranslation();
+
+  // zustand 可以參考
+  const setIsCartOpen = useCartStore(state => state.setIsCartOpen)
+
+
   const { setToken, token, language, setLanguage } = useUserStore();
   // console.log(useStore);
   // const [language, setLanguage] = useState(languageList.zh);
@@ -103,9 +108,9 @@ const Header = () => {
               <i className="fa-solid fa-language"></i>
             </li>
             <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
+              <div href="#" className="text-gray-600 hover:text-gray-800 cursor-pointer" onClick={() => setIsCartOpen(true)}>
                 <i className="fa-solid fa-cart-shopping"></i>
-              </a>
+              </div>
             </li>
             <li>
               {!token ? <Button color="light" onClick={() => setOpenModal(true)}>登入</Button> : (

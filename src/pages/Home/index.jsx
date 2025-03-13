@@ -190,7 +190,7 @@ const Home = () => {
                 key={item.category}
                 image={item.image}
                 title={item.title}
-                onClick={() => navigate(`/cities/${item.category}`)}
+                onClick={() => navigate(`/list/${item.category}`)}
               />
             ))}
           </div>

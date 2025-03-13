@@ -1,11 +1,28 @@
 // import React from 'react'
+import { useEffect, useState } from "react"; //useEffect => render後執行
 import { Carousel } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { homeApi } from "@/api/home";
+import ListCard from "@/components/ListCard";
 
 const List = () => {
-
   const navigate = useNavigate();
+  const { category } = useParams();
+  const [categoryData, setCategoryData] = useState([]);
+
+  const getSpots = async () => {
+    const { data } = await homeApi.getSpots();
+    const filterData = data.filter((item) => item.category === category);
+    setCategoryData(filterData);
+    console.log(filterData);
+  };
+
+  useEffect(() => {
+    getSpots();
+  }, []);
+  console.log(category);
+
   return (
     <>
       <div className="cityHeader w-full ">
@@ -60,7 +77,7 @@ const List = () => {
                 台北
               </h2>
               <p className="text-gray-700 mb-6">
-              台灣的首都──台北是個充滿活力的現代都市，一個處處有驚喜的現代都會！士林夜市、饒河街夜市或華西街夜市，有價廉物美的精品向購物狂招手。美食愛好者更加不容錯過這些人氣夜市中的地道佳餚，例如珍珠奶茶、臭豆腐、牛肉湯與牛肉麵。
+                台灣的首都──台北是個充滿活力的現代都市，一個處處有驚喜的現代都會！士林夜市、饒河街夜市或華西街夜市，有價廉物美的精品向購物狂招手。美食愛好者更加不容錯過這些人氣夜市中的地道佳餚，例如珍珠奶茶、臭豆腐、牛肉湯與牛肉麵。
               </p>
               <div className="grid grid-cols-2 gap-4 text-gray-700">
                 <div>
@@ -95,7 +112,6 @@ const List = () => {
                   />
                 </Carousel>
               </div>
-
             </div>
           </div>
         </div>
@@ -288,7 +304,9 @@ const List = () => {
             </div>
             <div className="flex flex-col space-y-4 w-3/4">
               <div className="flex justify-start items-center">
-                <span className="text-sm text-gray-600 mr-4">找到27項結果</span>
+                <span className="text-sm text-gray-600 mr-4">
+                  找到{categoryData.length}項結果
+                </span>
 
                 <div className="w-[300px]">
                   <form className="relative">
@@ -335,211 +353,20 @@ const List = () => {
                 </div>
               </div>
 
-              <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full">
-                <div className="2/5 md:w-2/5">
-                  <div onClick={() => navigate('/product')} className="cursor-pointer">
-                    <img
-                      src="https://images.unsplash.com/photo-1436891461396-6df41158de09?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt="台北101"
-                      className="rounded-lg w-full h-full object-cover "
-                    />
-                  </div>
-                </div>
-
-                <div className="3/5 md:w-3/5 p-4 flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-center space-x-2 mb-2">
-                      <a href="cityInfo.html">
-                        <div className="flex justify-start items-center gap-2">
-                          <span className="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
-                            展覽
-                          </span>
-                          <h2 className="text-lg font-bold text-gray-900">
-                            台北金魚藝術展 | Art Aquarium in Taipei
-                          </h2>
-                        </div>
-                      </a>
-                      <button className="ml-auto text-right">
-                        <i className="fa-regular fa-heart text-gray-500"></i>
-                      </button>
-                    </div>
-
-                    <ul className="my-2 text-xs inline-flex space-x-2 ">
-                      <li className="bg-gray-100 px-2 py-1 ">熱賣中</li>
-                      <li className="bg-gray-100 px-2 py-1 ">免費取消</li>
-                    </ul>
-
-                    <p className="text-sm text-gray-600">
-                      東京最具話題的「藝術水族館®」首次來台！將各種金魚悠游於水族缸中的樣子，通過光彩、音樂和香氣演繹的一種藝術。歡迎您來體驗！
-                    </p>
-
-                    <div className="flex items-center text-sm text-gray-500 mt-2 space-x-4">
-                      <span>📍 台北</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center my-4">
-                    <div className="flex items-center">
-                      <p className="ms-1 mr-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                        4.0
-                      </p>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                    </div>
-
-                    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                    <p className="text-sm font-medium text-gray-900  hover:no-underline dark:text-white">
-                      已售出 700+
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full">
-                <div className="2/5 md:w-2/5">
-                  <a href="cityInfo.html">
-                    <img
-                      src="https://images.unsplash.com/photo-1436891461396-6df41158de09?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt="台北101"
-                      className="rounded-lg w-full h-full object-cover "
-                    />
-                  </a>
-                </div>
-
-                <div className="3/5 md:w-3/5 p-4 flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-center space-x-2 mb-2">
-                      <a href="cityInfo.html">
-                        <div className="flex justify-start items-center gap-2">
-                          <span className="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
-                            展覽
-                          </span>
-                          <h2 className="text-lg font-bold text-gray-900">
-                            台北金魚藝術展 | Art Aquarium in Taipei
-                          </h2>
-                        </div>
-                      </a>
-                      <button className="ml-auto text-right">
-                        <i className="fa-regular fa-heart text-gray-500"></i>
-                      </button>
-                    </div>
-
-                    <ul className="my-2 text-xs inline-flex space-x-2 ">
-                      <li className="bg-gray-100 px-2 py-1 ">熱賣中</li>
-                      <li className="bg-gray-100 px-2 py-1 ">免費取消</li>
-                    </ul>
-
-                    <p className="text-sm text-gray-600">
-                      東京最具話題的「藝術水族館®」首次來台！將各種金魚悠游於水族缸中的樣子，通過光彩、音樂和香氣演繹的一種藝術。歡迎您來體驗！
-                    </p>
-
-                    <div className="flex items-center text-sm text-gray-500 mt-2 space-x-4">
-                      <span>📍 台北</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center my-4">
-                    <div className="flex items-center">
-                      <p className="ms-1 mr-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                        4.0
-                      </p>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 me-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                    </div>
-
-                    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                    <p className="text-sm font-medium text-gray-900  hover:no-underline dark:text-white">
-                      已售出 700+
-                    </p>
-                  </div>
-                </div>
-              </article>
+              {/* todo */}
+              {categoryData.map((item) => (
+                <ListCard
+                  key={item.title}
+                  image={item.image}
+                  title={item.title}
+                  tags={item.tags}
+                  summary={item.summary}
+                  category={item.category}
+                  star={item.star}
+                  sale={item.sale}
+                  // onClick={() => navigate(`/product/${item.id}`)}
+                />
+              ))}
 
               <div className="w-full mt-6 text-right">
                 <nav
