@@ -1,27 +1,23 @@
-const ListCard = ({ image, title, tags, summary, category, star, sale }) => {
+const ListCard = ({ image, title, tags, summary, category, star, sale, onClick }) => {
   return (
-    <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full">
+    <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full" onClick={onClick}>
       <div className="2/5 md:w-2/5">
-        <a href="cityInfo.html" className="cursor-pointer">
           <img
             src={image}
             alt={title}
             className="rounded-lg w-full h-full object-cover "
           />
-        </a>
       </div>
 
       <div className="3/5 md:w-3/5 p-4 flex flex-col justify-between">
         <div>
           <div className="flex justify-between items-center space-x-2 mb-2">
-            <a href="cityInfo.html">
               <div className="flex justify-start items-center gap-2">
                 {/* <span className="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
                   展覽
                 </span> */}
                 <h2 className="text-lg font-bold text-gray-900">{title}</h2>
               </div>
-            </a>
             <button className="ml-auto text-right">
               <i className="fa-regular fa-heart text-gray-500"></i>
             </button>

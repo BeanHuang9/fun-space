@@ -51,6 +51,7 @@ const List = () => {
     if (e.keyCode === 13) {
       const keyword = searchValue.trim()
       if (!keyword) {
+        // alert('請輸入搜尋關鍵字')
         setSearchData(categoryData)
         return
       }
@@ -236,7 +237,7 @@ const List = () => {
                   <Dropdown
                     label="請選擇"
                     dismissOnClick={false}
-                    className="font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none "
+                    className="font-medium rounded-lg text-center inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none "
                   >
                     <Dropdown.Item>熱門活動</Dropdown.Item>
                     <Dropdown.Item>評價最高</Dropdown.Item>

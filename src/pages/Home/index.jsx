@@ -63,6 +63,8 @@ const carouselImages = [
 //   },
 // ];
 
+
+//怎麼變成跑api
 const activityData = [
   {
     image: "https://images.unsplash.com/photo-1613018264526-88faa8dadbfc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -105,6 +107,7 @@ const activityData = [
     tags: ["熱門", "快速通關"],
   },
 ];
+
 
 const travelData = [
   {
