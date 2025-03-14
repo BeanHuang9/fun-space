@@ -9,7 +9,6 @@ import { Carousel } from "flowbite-react";
 // import axios from "axios"
 import { homeApi } from '@/api/home';
 import { useEffect, useState } from "react";//useEffect => render後執行
-import { useParams } from "react-router-dom";
 
 //promise
 // axios.get('api網址')
