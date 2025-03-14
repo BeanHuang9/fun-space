@@ -9,8 +9,7 @@ import { Carousel } from "flowbite-react";
 // import axios from "axios"
 import { homeApi } from '@/api/home';
 import { useEffect, useState } from "react";//useEffect => render後執行
-
-
+import { useParams } from "react-router-dom";
 
 //promise
 // axios.get('api網址')
@@ -65,49 +64,48 @@ const carouselImages = [
 
 
 //怎麼變成跑api
-const activityData = [
-  {
-    image: "https://images.unsplash.com/photo-1613018264526-88faa8dadbfc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "台北101觀景台門票",
-    subTitle: "觀景台 • 台北",
-    category: "taipei101",
-    star: 4,
-    num: 700,
-    price: 420,
-    tags: ["熱賣中", "免費取消"],
-  },
-  {
-    image: "https://plus.unsplash.com/premium_photo-1693236418889-3e0d269c59ad?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "故宮博物院門票",
-    category: "national-palace-museum",
-    subTitle: "博物館 • 台北",
-    star: 4.5,
-    num: 1200,
-    price: 350,
-    tags: ["熱門", "快速通關"],
-  },
-  {
-    image: "https://images.unsplash.com/photo-1613018264526-88faa8dadbfc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "台北101觀景台門票",
-    subTitle: "觀景台 • 台北",
-    category: "taipei101",
-    star: 4.0,
-    num: 700,
-    price: 420,
-    tags: ["熱賣中", "免費取消"],
-  },
-  {
-    image: "https://plus.unsplash.com/premium_photo-1693236418889-3e0d269c59ad?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "故宮博物院門票",
-    category: "national-palace-museum",
-    subTitle: "博物館 • 台北",
-    star: 4.5,
-    num: 1200,
-    price: 350,
-    tags: ["熱門", "快速通關"],
-  },
-];
-
+// const activityData = [
+//   {
+//     image: "https://images.unsplash.com/photo-1613018264526-88faa8dadbfc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     title: "台北101觀景台門票",
+//     subTitle: "觀景台 • 台北",
+//     category: "taipei101",
+//     star: 4,
+//     num: 700,
+//     price: 420,
+//     tags: ["熱賣中", "免費取消"],
+//   },
+//   {
+//     image: "https://plus.unsplash.com/premium_photo-1693236418889-3e0d269c59ad?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     title: "故宮博物院門票",
+//     category: "national-palace-museum",
+//     subTitle: "博物館 • 台北",
+//     star: 4.5,
+//     num: 1200,
+//     price: 350,
+//     tags: ["熱門", "快速通關"],
+//   },
+//   {
+//     image: "https://images.unsplash.com/photo-1613018264526-88faa8dadbfc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     title: "台北101觀景台門票",
+//     subTitle: "觀景台 • 台北",
+//     category: "taipei101",
+//     star: 4.0,
+//     num: 700,
+//     price: 420,
+//     tags: ["熱賣中", "免費取消"],
+//   },
+//   {
+//     image: "https://plus.unsplash.com/premium_photo-1693236418889-3e0d269c59ad?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     title: "故宮博物院門票",
+//     category: "national-palace-museum",
+//     subTitle: "博物館 • 台北",
+//     star: 4.5,
+//     num: 1200,
+//     price: 350,
+//     tags: ["熱門", "快速通關"],
+//   },
+// ];
 
 const travelData = [
   {
@@ -153,6 +151,7 @@ const travelData = [
 
 const Home = () => {
   const [spotData, setSpotData] = useState([])
+  const [activityData, setActivityData] = useState([])
   const navigate = useNavigate();
 
   // const changePage = (url) => {
@@ -166,8 +165,17 @@ const Home = () => {
     // console.log('async',data);
   }
 
+  const getActivityData = async() => {
+    const { data } = await homeApi.getSpots()
+    setActivityData(data)
+    // console.log('async',data);
+  }
+
+
+
   useEffect(() =>{
     getSpotCardData()
+    getActivityData()
   },[])
   return (
     <>
@@ -202,7 +210,7 @@ const Home = () => {
         <section className="mb-10">
           <h2 className="text-3xl font-extrabold dark:text-white">精選活動</h2>
           <div className="flex flex-wrap md:flex-nowrap md:space-x-4 py-4">
-            {activityData.map((item) => (
+            {activityData.slice(0, 4).map((item) => (
               <Activity
                 key={item.category}
                 image={item.image}
@@ -212,7 +220,7 @@ const Home = () => {
                 num={item.num}
                 price={item.price}
                 tags={item.tags}
-                onClick={() => navigate(`/activity/${item.category}`)}
+                onClick={() => navigate(`/product/${item.id}`)}
               />
             ))}
 
