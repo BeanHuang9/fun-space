@@ -2,7 +2,7 @@ const SpotCard = ({ image, title, onClick }) => {
   return (
     <div
 
-        className="relative block overflow-hidden rounded-lg w-full relative cursor-pointer"
+        className="relative block overflow-hidden rounded-lg w-full cursor-pointer"
         onClick={onClick}
         >
         <img

@@ -2,7 +2,7 @@ const ListCard = ({ image, title, tags, summary, category, star, sale }) => {
   return (
     <article className="flex flex-wrap md:flex-nowrap items-stretch border border-gray-300 rounded-lg bg-white w-full">
       <div className="2/5 md:w-2/5">
-        <a href="cityInfo.html">
+        <a href="cityInfo.html" className="cursor-pointer">
           <img
             src={image}
             alt={title}

@@ -2,14 +2,14 @@
 const Activity = ({ image, title, subTitle, start, num, price, onClick, tags = [] }) => {
     return (
         <div className="w-full md:flex-1 text-left border border-solid border-gray-300" >
-        <div href="cityInfo.html" onClick={onClick}>
+        <div className="cursor-pointer" href="cityInfo.html" onClick={onClick}>
           <img
             src={image}
             alt=""
           />
         </div>
         <div className="p-2 bg-white rounded-b-lg">
-          <div href="cityInfo.html" onClick={onClick}>
+          <div className="cursor-pointer" href="cityInfo.html" onClick={onClick}>
             <p className="mt-2 text-sm text-gray-900 dark:text-white">
                 {subTitle}
             </p>
