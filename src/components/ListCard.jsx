@@ -16,9 +16,9 @@ const ListCard = ({ image, title, tags, summary, category, star, sale }) => {
           <div className="flex justify-between items-center space-x-2 mb-2">
             <a href="cityInfo.html">
               <div className="flex justify-start items-center gap-2">
-                <span className="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                {/* <span className="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
                   展覽
-                </span>
+                </span> */}
                 <h2 className="text-lg font-bold text-gray-900">{title}</h2>
               </div>
             </a>

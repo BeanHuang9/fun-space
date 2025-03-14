@@ -6,17 +6,58 @@ import { useNavigate, useParams } from "react-router-dom";
 import { homeApi } from "@/api/home";
 import ListCard from "@/components/ListCard";
 
+const themes = ["必去玩樂", "美食品嚐", "放鬆"];
+
 const List = () => {
   const navigate = useNavigate();
   const { category } = useParams();
   const [categoryData, setCategoryData] = useState([]);
+  const [activeThemes, setActiveThemes] = useState([]);
+  const [searchData, setSearchData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   const getSpots = async () => {
     const { data } = await homeApi.getSpots();
     const filterData = data.filter((item) => item.category === category);
     setCategoryData(filterData);
+    setSearchData(filterData);
     console.log(filterData);
   };
+
+  const handleSelectThemes = (item) => {
+    // 主題
+    let newThemes = [];
+    if (activeThemes.includes(item)) {
+      // 若存在
+      // 移除
+      newThemes = activeThemes.filter((theme) => theme !== item);
+      setActiveThemes(newThemes);
+    } else {
+      newThemes = [...activeThemes, item];
+      setActiveThemes(newThemes);
+    }
+    // 資料
+    if (!newThemes.length) {
+      setSearchData(categoryData);
+    } else {
+      const newData = categoryData.filter((item) =>
+        newThemes.includes(item.theme)
+      );
+      setSearchData(newData);
+    }
+  };
+
+  const handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      const keyword = searchValue.trim()
+      if (!keyword) {
+        setSearchData(categoryData)
+        return
+      }
+      const newData = categoryData.filter(item => item.title.includes(keyword))
+      setSearchData(newData)
+    }
+  }
 
   useEffect(() => {
     getSpots();
@@ -132,186 +173,38 @@ const List = () => {
                   className="relative max-h-72 mt-2 overflow-y-auto text-base text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownSearchButton"
                 >
-                  <li>
-                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-1"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-1"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
+                  {themes.map((item, idx) => (
+                    <li key={item}>
+                      <div
+                        className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer"
+                        onClick={() => handleSelectThemes(item)}
                       >
-                        水上樂園
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-2"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-2"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                      >
-                        博物館
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-3"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-3"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                      >
-                        公園＆花園
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center pl-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-4"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-4"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                      >
-                        動物園＆水族館
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-4"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-4"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                      >
-                        纜車
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input
-                        id="checkbox-item-5"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label
-                        htmlFor="checkbox-item-5"
-                        className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                      >
-                        觀景台
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="flex items-center justify-between p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer"
-                      onClick="toggleSubMenu('submenu-1')"
-                    >
-                      <div className="flex items-center">
                         <input
-                          id="checkbox-item-6"
+                          id={`checkbox-item-${idx}`}
                           type="checkbox"
+                          checked={activeThemes.includes(item)}
                           className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                         />
-                        <label
-                          htmlFor="checkbox-item-6"
-                          className="w-full ms-2 text-base font-medium text-gray-900 rounded dark:text-gray-300"
-                        >
-                          觀光行程
-                        </label>
+                        {item}
                       </div>
-                      <i
-                        id="submenu-icon-1"
-                        className="fa-solid fa-chevron-down text-gray-500"
-                      ></i>
-                    </div>
-                    <ul id="submenu-1" className="hidden pl-6 space-y-2">
-                      <li>
-                        <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                          <input
-                            id="checkbox-item-7"
-                            type="checkbox"
-                            className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                          />
-                          <label
-                            htmlFor="checkbox-item-7"
-                            className="text-gray-900 dark:text-gray-300"
-                          >
-                            多日遊
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                          <input
-                            id="checkbox-item-8"
-                            type="checkbox"
-                            className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                          />
-                          <label
-                            htmlFor="checkbox-item-8"
-                            className="text-gray-900 dark:text-gray-300"
-                          >
-                            健行
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                          <input
-                            id="checkbox-item-9"
-                            type="checkbox"
-                            className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                          />
-                          <label
-                            htmlFor="checkbox-item-9"
-                            className="text-gray-900 dark:text-gray-300"
-                          >
-                            美食觀光
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
             <div className="flex flex-col space-y-4 w-3/4">
               <div className="flex justify-start items-center">
                 <span className="text-sm text-gray-600 mr-4">
-                  找到{categoryData.length}項結果
+                  找到{searchData.length}項結果
                 </span>
 
                 <div className="w-[300px]">
-                  <form className="relative">
+                  <div className="relative">
                     <input
                       type="text"
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => handleSearch(e)}
                       placeholder="探索全球目的地 / 活動"
                       className="w-full p-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
                     />
@@ -334,7 +227,7 @@ const List = () => {
                         ></path>
                       </svg>
                     </button>
-                  </form>
+                  </div>
                 </div>
 
                 <div className="ml-4 sortBox">
@@ -354,7 +247,7 @@ const List = () => {
               </div>
 
               {/* todo */}
-              {categoryData.map((item) => (
+              {searchData.map(item => (
                 <ListCard
                   key={item.title}
                   image={item.image}
@@ -364,7 +257,7 @@ const List = () => {
                   category={item.category}
                   star={item.star}
                   sale={item.sale}
-                  // onClick={() => navigate(`/product/${item.id}`)}
+                  onClick={() => navigate(`/product/${item.id}`)}
                 />
               ))}
 
