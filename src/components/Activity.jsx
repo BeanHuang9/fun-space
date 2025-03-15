@@ -4,6 +4,7 @@ const Activity = ({ image, title, subTitle, start, num, price, onClick, tags = [
         <div className="w-full md:flex-1 text-left border border-solid border-gray-300" >
         <div className="cursor-pointer" onClick={onClick}>
           <img
+            className="w-full h-48 object-cover"
             src={image}
             alt=""
           />
