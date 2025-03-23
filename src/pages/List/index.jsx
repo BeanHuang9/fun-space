@@ -5,8 +5,22 @@ import { Dropdown } from "flowbite-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { homeApi } from "@/api/home";
 import ListCard from "@/components/ListCard";
+import { Pagination } from "flowbite-react";
 
 const themes = ["必去玩樂", "美食品嚐", "放鬆"];
+
+const sortMethod = [
+  {
+    value: 'asc',
+    option: '價格（從低到高)' // 由小到大
+  },
+  {
+    value: 'desc',
+    option: '價格（從高到低)' // 由大到小
+  }
+]
+
+const PAGE_SIZE = 5
 
 const List = () => {
   const navigate = useNavigate();
@@ -15,6 +29,9 @@ const List = () => {
   const [activeThemes, setActiveThemes] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const onPageChange = (page) => setCurrentPage(page);
 
   const getSpots = async () => {
     const { data } = await homeApi.getSpots();
@@ -59,6 +76,21 @@ const List = () => {
       setSearchData(newData)
     }
   }
+
+
+  const handleSort = (item) => {
+    const newData = [...categoryData]
+    if (item === 'asc') {
+      newData.sort((a, b) => a.price - b.price)
+    }
+    if (item === 'desc') {
+      newData.sort((a, b) => b.price - a.price)
+    }
+    setSearchData(newData)
+    console.log(item);
+  }
+
+
 
   useEffect(() => {
     getSpots();
@@ -236,19 +268,15 @@ const List = () => {
 
                   <Dropdown
                     label="請選擇"
-                    dismissOnClick={false}
                     className="font-medium rounded-lg text-center inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none "
                   >
-                    <Dropdown.Item>熱門活動</Dropdown.Item>
-                    <Dropdown.Item>評價最高</Dropdown.Item>
-                    <Dropdown.Item>價格（從低到高）</Dropdown.Item>
-                    <Dropdown.Item>最新上線</Dropdown.Item>
+                    {sortMethod.map(item => <Dropdown.Item key={item.value} onClick={() => handleSort(item.value)}>{item.option}</Dropdown.Item>)}
                   </Dropdown>
                 </div>
               </div>
 
               {/* todo */}
-              {searchData.map(item => (
+              {searchData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE).map(item => (
                 <ListCard
                   key={item.title}
                   image={item.image}
@@ -262,68 +290,7 @@ const List = () => {
                 />
               ))}
 
-              <div className="w-full mt-6 text-right">
-                <nav
-                  className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-                  aria-label="Pagination"
-                >
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                  >
-                    <span className="sr-only">Previous</span>
-                    <i className="fa-solid fa-angle-left"></i>
-                  </a>
-
-                  <a
-                    href="#"
-                    aria-current="page"
-                    className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    1
-                  </a>
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                  >
-                    2
-                  </a>
-                  <a
-                    href="#"
-                    className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                  >
-                    3
-                  </a>
-                  <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
-                    ...
-                  </span>
-                  <a
-                    href="#"
-                    className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                  >
-                    8
-                  </a>
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                  >
-                    9
-                  </a>
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                  >
-                    10
-                  </a>
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                  >
-                    <span className="sr-only">Next</span>
-                    <i className="fa-solid fa-angle-right"></i>
-                  </a>
-                </nav>
-              </div>
+              <Pagination currentPage={currentPage} totalPages={Math.ceil(searchData.length / PAGE_SIZE) || 1} onPageChange={onPageChange} />
             </div>
           </div>
         </section>
