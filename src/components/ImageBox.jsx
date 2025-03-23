@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const ImageBox = () => {
+const ImageBox = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [
-    "https://image.kkday.com/v2/image/get/h_600%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241213105222_JeJDz/jpg",
-    "https://image.kkday.com/v2/image/get/h_300%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241216114506_ARrir/jpg",
-    "https://image.kkday.com/v2/image/get/h_300%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241216114507_HccBN/jpg",
-  ];
+  // const images = [
+  //   "https://image.kkday.com/v2/image/get/h_600%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241213105222_JeJDz/jpg",
+  //   "https://image.kkday.com/v2/image/get/h_300%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241216114506_ARrir/jpg",
+  //   "https://image.kkday.com/v2/image/get/h_300%2Cc_fill%2Cq_55%2Ct_webp/s1.kkday.com/product_264493/20241216114507_HccBN/jpg",
+  // ];
 
   return (
     <>

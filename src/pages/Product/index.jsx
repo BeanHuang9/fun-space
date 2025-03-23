@@ -1,9 +1,29 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ImageBox from "@/components/ImageBox";
+import { homeApi } from '@/api/home';
+import { useParams } from 'react-router-dom';
+import parse from 'html-react-parser'
 
 const Product = () => {
+  const { id } = useParams() // id 是字串
   const [isOpen, setIsOpen] = useState(false);
+  const [product, setProduct] = useState({})
   const optionsRef = useRef(null);
+  const [date, setDate] = useState('')
+  const [pickup, setPickup] = useState('')
+  const [dropoff, setDropoff] = useState('')
+  const [sessiontime, setSessiontime] = useState('')
+  const [people, setPeople] = useState(1)
+
+  const getData = async() => {
+    const { data } = await homeApi.getSpots()
+    const selectedProduct = data.find(item => item.id === Number(id))
+    setProduct(selectedProduct)
+    setPickup(selectedProduct.plan.pickup[0])
+    setDropoff(selectedProduct.plan.dropoff[0])
+    setSessiontime(selectedProduct.plan.sessiontime[0])
+    console.log(selectedProduct);
+  }
 
   const toggleContent = () => {
     setIsOpen(!isOpen);
@@ -16,10 +36,24 @@ const Product = () => {
     }
   };
 
+  const handlePickup = (isPickup, item) => {
+    if (isPickup) {
+      setPickup(item)
+    }
+    console.log(item);
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  if (!product.id) return null
+
   return (
     <>
       <div className="cityHeader w-full">
         <div className="container mx-auto px-4 py-10">
+
           <nav className="flex mb-10" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
               <li className="inline-flex items-center">
@@ -82,15 +116,14 @@ const Product = () => {
                     />
                   </svg>
                   <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                    台北金魚藝術展 | Art Aquarium in Taipei
+                    {product.title}
                   </span>
                 </div>
               </li>
             </ol>
           </nav>
-
-          <ImageBox />
-
+          {/* <ImageBox images={Array.from({ length: 3 }, () => product.image)} /> */}
+          <ImageBox images={product.imgs} />
        </div>
       </div>
 
@@ -103,7 +136,7 @@ const Product = () => {
                   展覽
                 </span>
                 <h2 className="text-2xl font-bold text-gray-900">
-                  台北金魚藝術展 | Art Aquarium in Taipei
+                  {product.title}
                 </h2>
               </div>
               <button className="ml-auto text-right">
@@ -175,18 +208,11 @@ const Product = () => {
             </div>
 
             <p className="text-base text-justify leading-8 text-gray-600">
-              Art
-              Aquarium(金魚藝術展)®於2022年5月在東京銀座三越開幕，目前在日本享有極高的人氣。
-              <br />
-              <br />
-              將自古以來受到喜愛的金魚觀賞，以現代藝術空間的形式，透過光、音、香氣以及日本的傳統文化和藝術品進行演繹的「藝術水族館」。除了全年可觀賞的常設展覽外，還會舉辦隨著四季變化的企劃展覽。在這個夢幻般的演出空間中，您可以盡情欣賞可愛且獨特的金魚。
-              <br />
-              <br />
-              金魚是用來觀賞的淡水魚。經過改良後的金魚，自江戶時代起在日本也開始廣泛養殖。隨著品種改良，誕生了各種形態的金魚，作為生動的藝術品，吸引了眾多愛好者。在本館內，有各種不同種類的金魚在水中游動，為觀賞者帶來愉悅的心情，展示設計也讓人不禁想拍照留念。金魚是夏季的季語，像緣日的撈金魚等，也成為日本夏季的代表性象徵之一。雖然金魚常與夏天聯繫在一起，但在本館，即使是冬天，也能享受到金魚的觀賞樂趣。
+              {parse(product.desc)}
             </p>
           </div>
           <div className="w-1/3 px-5 py-4 border border-gray-200 rounded-lg">
-            <div className="text-teal-600 text-lg font-bold">NT$ 420 起</div>
+            <div className="text-teal-600 text-lg font-bold">NT$ {product.price} 起</div>
             <button
               type="button"
               className="py-2 my-2 bg-teal-500 text-white text-base rounded-lg w-full"
@@ -208,13 +234,13 @@ const Product = () => {
                 <div className="flex justify-between items-center space-x-2 mb-2">
                   <div className="flex justify-start items-center gap-2">
                     <h2 className="text-lg font-bold text-gray-900">
-                      Art Aquarium 金魚藝術展 in Taipei【一般票】
+                      {product.plan.name}
                     </h2>
                   </div>
 
                   <div className="text-right">
                     <span className="mx-2 text-teal-600 text-lg font-bold">
-                      NT$ 420 起
+                      NT$ {product.plan.price} 起
                     </span>
                     <button
                       className="px-10 py-2 my-2 text-teal-600 text-base rounded-lg border border-gray-300 w-40"
@@ -226,12 +252,13 @@ const Product = () => {
                 </div>
 
                 <ul className="my-2 text-xs inline-flex space-x-2">
-                  <li className="bg-gray-100 px-2 py-1">熱賣中</li>
-                  <li className="bg-gray-100 px-2 py-1">免費取消</li>
+                  {product.plan.tags.map(i => (
+                    <li key={i} className="bg-gray-100 px-2 py-1">{i}</li>
+                  ))}
                 </ul>
 
                 <div className="flex items-center text-sm text-gray-500 mt-2 space-x-4">
-                  <span>📍 台北</span>
+                  <span>📍 {product.plan.city}</span>
                 </div>
               </div>
 
@@ -273,7 +300,7 @@ const Product = () => {
                         請選擇出發日期
                       </p>
                       <div className="w-full border border-gray-300 p-2 rounded-lg bg-white text-gray-700">
-                        <input type="date" className="w-full outline-none" />
+                        <input value={date} onChange={e => setDate(e.target.value)} type="date" className="w-full outline-none" />
                       </div>
                     </div>
 
@@ -284,14 +311,12 @@ const Product = () => {
                           上車地點
                         </p>
                         <div className="flex items-center space-x-2">
-                          <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                            <input type="radio" name="boarding-location" />
-                            台北火車站東三門
+                          {product.plan.pickup.map(item => (
+                            <label key={item} className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
+                            <input onChange={(e) => e.target.checked && setPickup(item)} checked={item === pickup} type="radio" name="boarding-location" />
+                            {item}
                           </label>
-                          <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                            <input type="radio" name="boarding-location" />
-                            宜蘭火車站
-                          </label>
+                          ))}
                         </div>
                       </div>
 
@@ -303,14 +328,12 @@ const Product = () => {
                             下車地點
                           </p>
                           <div className="flex items-center space-x-2">
-                            <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                              <input type="radio" name="dropoff-location" />
-                              台北火車站東三門
-                            </label>
-                            <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                              <input type="radio" name="dropoff-location" />
-                              宜蘭火車站
-                            </label>
+                            {product.plan.dropoff.map(item => (
+                              <label key={item} className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
+                                <input onChange={(e) => e.target.checked && setDropoff(item)} checked={item === dropoff} type="radio" name="dropoff-location" />
+                                {item}
+                              </label>
+                            ))}
                           </div>
                         </div>
                       </div>
@@ -322,14 +345,12 @@ const Product = () => {
                           場次時間
                         </p>
                         <div className="flex items-center space-x-2">
-                          <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                            <input type="radio" name="radio-time" />
-                            11:30
-                          </label>
-                          <label className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
-                            <input type="radio" name="radio-time" />
-                            17:30
-                          </label>
+                          {product.plan.sessiontime.map(item => (
+                            <label key={item} className="block px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
+                              <input onChange={(e) => e.target.checked && setSessiontime(item)} checked={item === sessiontime} type="radio" name="radio-time" />
+                              {item}
+                            </label>
+                          ))}
                         </div>
                       </div>
 
@@ -341,16 +362,13 @@ const Product = () => {
                         <div className="flex justify-between items-center space-x-4">
                           <span className="text-base font-medium">人數</span>
                           <div className="flex items-center space-x-2">
-                            <button className="w-8 h-8 text-xl font-bold text-gray-500 bg-gray-100 rounded-full hover:bg-gray-200">
+                            <button className="w-8 h-8 text-xl font-bold text-gray-500 bg-gray-100 rounded-full hover:bg-gray-200" onClick={() => setPeople(prev => Math.max(prev - 1, 1))}>
                               −
                             </button>
-                            <span className="text-lg font-medium">1</span>
-                            <button className="w-8 h-8 text-xl font-bold text-gray-500 bg-gray-100 rounded-full hover:bg-gray-200">
+                            <span className="text-lg font-medium">{people}</span>
+                            <button className="w-8 h-8 text-xl font-bold text-gray-500 bg-gray-100 rounded-full hover:bg-gray-200" onClick={() => setPeople(prev => prev + 1)}>
                               ＋
                             </button>
-                            <span className="text-base font-semibold text-black">
-                              NT$ 350
-                            </span>
                             <span className="text-sm text-gray-500">每人</span>
                           </div>
                         </div>
@@ -361,7 +379,7 @@ const Product = () => {
                   {/* 按鈕區 */}
                   <div className="mt-6 text-right">
                     <span className="text-2xl font-semibold text-gray-700">
-                      總計 NT$ 0
+                      總計 NT$ {people * product.plan.price}
                     </span>
                     <button className="px-2 py-2 my-2 bg-indigo-500 text-white text-base rounded-lg w-40 opacity-80 hover:opacity-100">
                       加入購物車

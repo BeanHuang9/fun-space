@@ -13,16 +13,16 @@ const  router = createBrowserRouter([
             },
             {
                 //動態參數
-                path: '/Cities/:city',
+                path: '/cities/:city',
                 element: <Cities />
             },
             {
                 // :id
-                path: '/Product/:id',
+                path: '/product/:id',
                 element: <Product />
             },
             {
-                path: '/Cart',
+                path: '/cart',
                 element: <Cart />
             },
             {
